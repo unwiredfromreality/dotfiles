@@ -1,76 +1,98 @@
-
-{
-  "layer": "bottom",
-  "position": "bottom", 
-  "height": 32,
-  "reload_style_on_change": true,
-
-  "modules-left": [ "custom/rofi", "wlr/taskbar" ],
-  "modules-center": [ "" ],
-  "modules-right": [ "memory", "cpu", "bluetooth", "network", "pulseaudio", "clock#time", "battery",  "tray" ],
- 
- "custom/rofi": {
-	"format": "<span foreground='#d79921'>Applications</span>{}",
-	"on-click": "rofi -show",
- },
-  "wlr/taskbar": {
-    "format": "{icon} {app_id}",
-    "icon-size": 14,
-    "icon-theme": "Gruvbox-Plus-Dark",
-    "on-click": "minimize-raise",
-  },
-  "memory": {
-    "interval": 2,
-    "format": "<span foreground='#d79921'>   </span>{used:0.1f}GiB"
-  },
-  "cpu": {
-    "interval": 2,
-    "format": "<span foreground='#d79921'>󰻠   </span>{usage}%"
-  },
-"bluetooth": {
-	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-	"format": "<span foreground='#d79921'>   </span>{status}",
-	"format-disabled": "", // an empty format will hide the module
-	"format-connected": "<span foreground='#d79921'>   </span>{device_alias}",
-	"tooltip-format": "{controller_alias}\t{controller_address}",
-	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "blueman-manager",
-},
-  "network": {
-	"interval": 1,
-	"format-wifi": "<span foreground='#d79921'>{icon}  </span>{essid}<span foreground='#d79921'>      </span>{bandwidthUpBytes}<span foreground='#d79921'>     </span>{bandwidthDownBytes} ",
-    "format-disconnected": "",
-	"format-ethernet": "<span foreground='#d79921'>  </span>Connected",
-	"on-click-right-release": "alacritty --class nmtui -T 'Network Settings' -e nmtui",
-	"format-icons": [
-		"󰤯 ",
-		"󰤟 ",
-		"󰤢 ",
-		"󰤥 ", 
-		"󰤨 "
-	]
-  },
-  "pulseaudio": {
-    "format": "<span foreground='#d79921'>󰕾   </span>{volume}",
-  },
-
-  "clock#time": {
-    "interval": 1,
-    "format": "{:%a %b %d  %I:%M %p}",
-    "tooltip": false,
-  },
-
-  "battery": {
-    "format": "{capacity}%",
-  },
-
-  "tray": {
-    "icon-size": 14,
-    "spacing": 10,
-	"show-passive-items": true
-  },
-
+* {
+  border: none;
+  font-family: Iosevka;
+  font-weight: bold;
+  font-size: 12px;
+  min-height: 0;
 }
 
-// vim:ft=jsonc
+tooltip {
+	background: #282828;
+	border: 0px solid;
+	border-radius: 0px;
+}
+
+window#waybar {
+  background: rgba(0,0,0,0);
+  color: #ebdbb2;
+}
+
+#workspaces button {
+  padding: 0 0em;
+  color: #a89984;
+  background: #504945;
+  border-radius: 0px;
+  margin-right: 4px;
+  margin-left: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#workspaces button.active {
+  color: #ebdbb2;
+  background: #665c54;
+}
+
+#workspaces button.urgent {
+  color: #1d2021;
+  background: #fb4934;
+}
+
+#workspaces button:hover {
+  background: #665c54;
+}
+
+#taskbar {
+  background: #433e3c;
+  padding: 0 0em;
+  margin-right: 2px;
+  margin-left: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 0px;
+}
+#taskbar button {
+  color: #d5c4a1;
+}
+
+#custom-rofi {
+  color: #d5c4a1;
+  background: #433e3c;
+  padding: 0 0.6em;
+  margin-right: 2px;
+  margin-left: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 0px;
+}
+
+#disk,
+#clock,
+#battery,
+#bluetooth,
+#pulseaudio,
+#memory,
+#cpu,
+#network,
+#workspaces,
+#custom-spotify {
+  color: #d5c4a1;
+  background: #433e3c;
+  padding: 0 0.6em;
+  margin-right: 2px;
+  margin-left: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 0px;
+}
+ 
+#tray {
+  color: #d5c4a1;
+  background: #433e3c;
+  padding: 0 0.6em;
+  margin-right: 4px;
+  margin-left: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 0px;
+}
