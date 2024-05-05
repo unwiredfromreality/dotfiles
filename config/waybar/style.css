@@ -75,7 +75,17 @@ window#waybar {
 #cpu,
 #network,
 #workspaces,
-#custom-spotify,
+#custom-spotify {
+  color: #d5c4a1;
+  background: #433e3c;
+  padding: 0 0.6em;
+  margin-right: 2px;
+  margin-left: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 0px;
+}
+ 
 #tray {
   color: #d5c4a1;
   background: #433e3c;
@@ -86,4 +96,3 @@ window#waybar {
   margin-bottom: 4px;
   border-radius: 0px;
 }
-
